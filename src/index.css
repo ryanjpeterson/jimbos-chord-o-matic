@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #4f46e5;
+  --color-secondary: #10b981;
+  --color-dark-bg: #1f2937;
+  --color-light-card: #374151;
+  --color-gemini: #3b82f6;
+}
+
+.fretboard-grid {
+  /* 13 columns: 13 frets (0-12). Removed 40px string label column */
+  display: grid;
+  grid-template-columns: repeat(13, minmax(0, 1fr));
+  gap: 0;
+  align-items: center;
+  border-bottom: 1px solid #4b5563;
+  min-width: max-content;
+}
+.fret-cell {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-right: 1px solid #4b5563;
+}
+.fret-cell:last-child {
+  border-right: none;
+}
+.fret-note {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.fret-note:hover {
+  transform: scale(1.1);
+}
+.dot-marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background-color: #6b7280;
+  border-radius: 50%;
+  z-index: -1;
+}
+/* Custom scrollbar for dark mode */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
